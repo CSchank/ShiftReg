@@ -8,8 +8,7 @@
 
 #include "Arduino.h"
 
-class ShiftReg
-{
+class ShiftReg {
   public:
     ShiftReg();
     init(int n, int clockPin, int dataPin, int latchPin);
