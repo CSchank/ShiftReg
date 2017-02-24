@@ -1,7 +1,7 @@
 /*
   ShiftReg.h - Class for managing n daisy chained Shift Registers.
   Created by Christopher W. Schankula, Feburary 18, 2017.
-  Released into the public domain.
+  Released under Creative Commons Attribution-ShareAlike CC BY-SA license.
 */
 #ifndef ShiftReg_h
 #define ShiftReg_h
@@ -11,7 +11,8 @@
 class ShiftReg
 {
   public:
-    ShiftReg(int clockPin, int dataPin, int latchPin, int n);
+    ShiftReg();
+    init(int n, int clockPin, int dataPin, int latchPin);
     void clearBytes();
     byte getByte();
     void setByte(byte bytes[]);

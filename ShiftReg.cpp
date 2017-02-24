@@ -1,15 +1,18 @@
 #include "Arduino.h"
 #include "ShiftReg.h"
 
-ShiftReg::ShiftReg(int clockPin, int dataPin, int latchPin, int n){
-  Serial.begin(9600);
+ShiftReg::ShiftReg(){
+
+}
+
+ShiftReg::init(int n,int clockPin,int dataPin,int latchPin){
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
   pinMode(latchPin, OUTPUT);
+  _numSR = n;
   _clockPin = clockPin;
   _dataPin = dataPin;
   _latchPin = latchPin;
-  _numSR = n;
 }
 
 void ShiftReg::clearBytes() {
@@ -33,7 +36,7 @@ void ShiftReg::pushByte(){
   digitalWrite(_latchPin, LOW);
   for (int i = 0; i < _numSR; i++) {
     digitalWrite(_latchPin, LOW);
-    shiftOut(_dataPin, _clockPin, MSBFIRST, _bytes[i]);
+    shiftOut(_dataPin, _clockPin, LSBFIRST, _bytes[_numSR-1-i]);
   }
   digitalWrite(_latchPin, 1);
 }
