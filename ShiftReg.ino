@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 # include "ShiftReg.h"
 
 ShiftReg shReg; //instantiate ShiftReg instance
-=======
-bool startPressed = false;
-bool endPressed = false;
-int startTime = 0;
-int endTime = 0;
->>>>>>> origin/master
 
 void setup(){
   //initialize shReg with 2 daisy chained shift registers, having clock pin 12, data pin 11 and latch pin 8.
