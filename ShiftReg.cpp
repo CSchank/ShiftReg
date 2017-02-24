@@ -2,6 +2,10 @@
 #include "ShiftReg.h"
 
 ShiftReg::ShiftReg(int clockPin, int dataPin, int latchPin, int n){
+  Serial.begin(9600);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+  pinMode(latchPin, OUTPUT);
   _clockPin = clockPin;
   _dataPin = dataPin;
   _latchPin = latchPin;
